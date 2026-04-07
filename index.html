@@ -1,8 +1,8 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visionary Syntax. | Premium Assets</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,12 +43,10 @@
         }
     </script>
     <style>
-        /* Smooth scrolling and ABSOLUTE mobile vertical lock */
+        /* Smooth scrolling and base body setup */
         html, body { 
             scroll-behavior: smooth; 
             overflow-x: hidden !important; 
-            overflow-x: clip !important; /* Modern strict clipping */
-            max-width: 100% !important;
             width: 100%; 
             margin: 0;
             padding: 0;
@@ -57,9 +55,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
         
-        /* Universal constraint to prevent any element from breaking the width */
-        * { max-width: 100%; box-sizing: border-box; }
-        img, svg, video { max-width: 100%; height: auto; }
+        /* ✅ FIX 5: Removed the destructive * { max-width: 100% } wildcard */
         
         h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
         
@@ -232,7 +228,7 @@
 </head>
 <body class="bg-[#fafafa] text-gray-900 dark:bg-brand-dark dark:text-gray-100 antialiased selection:bg-brand-primary selection:text-white overflow-x-hidden">
 
-    <main class="w-full max-w-full overflow-x-hidden overflow-x-clip relative flex flex-col">
+    <main class="w-full overflow-x-hidden relative flex flex-col">
 
         <div id="intro-overlay">
             <div class="intro-text-wrap">
@@ -247,7 +243,7 @@
         </div>
 
         <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-xl bg-white/80 dark:bg-brand-dark/90 border-b border-gray-200 dark:border-brand-border shadow-sm" data-aos="fade-down" data-aos-duration="800" data-aos-delay="1500">
-            <div class="max-w-[90rem] mx-auto px-4 lg:px-8">
+            <div class="max-w-screen-xl mx-auto px-4 lg:px-8">
                 <div class="flex items-center justify-between h-16 md:h-20">
                     
                     <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
@@ -279,16 +275,23 @@
                             Get Prompts
                         </a>
                         
-                        <button class="xl:hidden text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors outline-none p-2">
+                        <button id="mobile-menu-btn" class="xl:hidden text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors outline-none p-2">
                             <i class="fas fa-bars text-xl"></i>
                         </button>
                     </div>
+                </div>
+                
+                <div id="mobile-menu" class="hidden flex-col gap-4 py-4 bg-transparent xl:hidden border-t border-gray-200 dark:border-brand-border">
+                    <a href="#" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors">Home</a>
+                    <a href="#archive" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors">Prompts</a>
+                    <a href="#" class="text-[13px] font-semibold text-brand-primary transition-colors">Website Development</a>
+                    <a href="#" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors">Contact</a>
                 </div>
             </div>
         </nav>
 
         <section class="relative pt-24 pb-12 lg:pt-48 lg:pb-32 px-4 md:px-0">
-            <div class="max-w-[90rem] mx-auto px-0 md:px-6 lg:px-8 relative">
+            <div class="max-w-screen-xl mx-auto px-0 md:px-6 lg:px-8 relative">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     <div class="w-full flex flex-col items-center text-center lg:items-start lg:text-left" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1700">
                         <div class="inline-flex items-center justify-center gap-2 px-3 py-1.5 mb-6 rounded bg-gray-100 dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-brand-primary text-[9px] md:text-[10px] font-bold tracking-widest uppercase shadow-sm">
@@ -336,7 +339,7 @@
 
         <section id="archive" class="py-16 md:py-24 bg-white dark:bg-brand-surface relative border-y border-gray-200 dark:border-brand-border">
             
-            <div class="max-w-[90rem] mx-auto px-4 lg:px-8 mb-8 md:mb-12" data-aos="fade-up">
+            <div class="max-w-screen-xl mx-auto px-4 lg:px-8 mb-8 md:mb-12" data-aos="fade-up">
                 <div class="text-center mb-8 md:mb-12">
                     <h2 class="font-heading text-3xl md:text-4xl font-extrabold mb-3 md:mb-4 text-gray-900 dark:text-white tracking-tight uppercase px-2">FEATURED ASSETS</h2>
                     <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm font-light px-4">A preview of high-fidelity blueprints available in our technical archive.</p>
@@ -358,8 +361,8 @@
                 </div>
             </div>
 
-            <div class="max-w-[90rem] mx-auto px-4 lg:px-8">
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+            <div class="max-w-screen-xl mx-auto px-4 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                     
                     <div class="bg-gray-50 dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-2xl md:rounded-3xl overflow-hidden flex flex-col group hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
                         <div class="relative aspect-[3/4] overflow-hidden bg-gray-200 dark:bg-black rounded-t-2xl md:rounded-t-3xl">
@@ -368,9 +371,9 @@
                             </div>
                             <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop" alt="Portrait" class="w-full h-full object-cover opacity-90">
                         </div>
-                        <div class="p-3 md:p-6 flex flex-col flex-grow">
-                            <h4 class="text-gray-900 dark:text-white font-bold text-sm md:text-lg mb-1 md:mb-2 truncate">Office Swag</h4>
-                            <p class="text-gray-500 dark:text-gray-400 text-[10px] md:text-sm mb-3 md:mb-6 line-clamp-2 font-light">A high-fidelity candid flash photography blueprint.</p>
+                        <div class="p-4 md:p-6 flex flex-col flex-grow">
+                            <h4 class="text-gray-900 dark:text-white font-bold text-base md:text-lg mb-1 md:mb-2 truncate">Office Swag</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-[11px] md:text-sm mb-3 md:mb-6 line-clamp-2 font-light">A high-fidelity candid flash photography blueprint.</p>
                             <button class="open-modal-btn flex items-center justify-between w-full mt-auto text-[10px] md:text-xs font-bold text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors group/btn" 
                                 data-title="Office Swag Portrait"
                                 data-category="MEN"
@@ -390,9 +393,9 @@
                             </div>
                             <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600&auto=format&fit=crop" alt="Guitar" class="w-full h-full object-cover opacity-90">
                         </div>
-                        <div class="p-3 md:p-6 flex flex-col flex-grow">
-                            <h4 class="text-gray-900 dark:text-white font-bold text-sm md:text-lg mb-1 md:mb-2 truncate">Night Guitarist</h4>
-                            <p class="text-gray-500 dark:text-gray-400 text-[10px] md:text-sm mb-3 md:mb-6 line-clamp-2 font-light">A candid, ultra-realistic night shot of a young man playing...</p>
+                        <div class="p-4 md:p-6 flex flex-col flex-grow">
+                            <h4 class="text-gray-900 dark:text-white font-bold text-base md:text-lg mb-1 md:mb-2 truncate">Night Guitarist</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-[11px] md:text-sm mb-3 md:mb-6 line-clamp-2 font-light">A candid, ultra-realistic night shot of a young man playing...</p>
                             <button class="open-modal-btn flex items-center justify-between w-full mt-auto text-[10px] md:text-xs font-bold text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors group/btn" 
                                 data-title="Night Guitarist"
                                 data-category="MEN"
@@ -412,9 +415,9 @@
                             </div>
                             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" alt="Dark" class="w-full h-full object-cover opacity-90">
                         </div>
-                        <div class="p-3 md:p-6 flex flex-col flex-grow">
-                            <h4 class="text-gray-900 dark:text-white font-bold text-sm md:text-lg mb-1 md:mb-2 truncate">Dark Rider</h4>
-                            <p class="text-gray-500 dark:text-gray-400 text-[10px] md:text-sm mb-3 md:mb-6 line-clamp-2 font-light">An ultra-realistic cinematic dark poster portrait.</p>
+                        <div class="p-4 md:p-6 flex flex-col flex-grow">
+                            <h4 class="text-gray-900 dark:text-white font-bold text-base md:text-lg mb-1 md:mb-2 truncate">Dark Rider</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-[11px] md:text-sm mb-3 md:mb-6 line-clamp-2 font-light">An ultra-realistic cinematic dark poster portrait.</p>
                             <button class="open-modal-btn flex items-center justify-between w-full mt-auto text-[10px] md:text-xs font-bold text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors group/btn" 
                                 data-title="Cinematic Dark Rider"
                                 data-category="UNIQUE"
@@ -434,9 +437,9 @@
                             </div>
                             <img src="https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?q=80&w=600&auto=format&fit=crop" alt="Gold" class="w-full h-full object-cover opacity-90">
                         </div>
-                        <div class="p-3 md:p-6 flex flex-col flex-grow">
-                            <h4 class="text-gray-900 dark:text-white font-bold text-sm md:text-lg mb-1 md:mb-2 truncate">Golden Warrior</h4>
-                            <p class="text-gray-500 dark:text-gray-400 text-[10px] md:text-sm mb-3 md:mb-6 line-clamp-2 font-light">A realistic 3D golden sculpture render of a fierce warrior.</p>
+                        <div class="p-4 md:p-6 flex flex-col flex-grow">
+                            <h4 class="text-gray-900 dark:text-white font-bold text-base md:text-lg mb-1 md:mb-2 truncate">Golden Warrior</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-[11px] md:text-sm mb-3 md:mb-6 line-clamp-2 font-light">A realistic 3D golden sculpture render of a fierce warrior.</p>
                             <button class="open-modal-btn flex items-center justify-between w-full mt-auto text-[10px] md:text-xs font-bold text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors group/btn" 
                                 data-title="Golden Warrior"
                                 data-category="UNIQUE"
@@ -454,7 +457,7 @@
         </section>
 
         <section class="py-16 md:py-24 relative bg-gray-100 dark:bg-brand-dark px-4 md:px-0">
-            <div class="max-w-[90rem] mx-auto px-0 md:px-6 lg:px-8">
+            <div class="max-w-screen-xl mx-auto px-0 md:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
                     <div data-aos="fade-up" data-aos-duration="1000" class="text-center md:text-left px-2 md:px-0">
                         <h2 class="font-heading text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-4 md:mb-6 text-gray-900 dark:text-white uppercase leading-[1.1] break-words">
@@ -505,7 +508,7 @@
         </section>
 
         <section class="pb-16 md:pb-24 bg-gray-100 dark:bg-brand-dark px-4 md:px-0" data-aos="fade-up" data-aos-duration="1000">
-            <div class="max-w-[90rem] mx-auto px-0 md:px-4 lg:px-8">
+            <div class="max-w-screen-xl mx-auto px-0 md:px-4 lg:px-8">
                 <div class="bg-gray-900 dark:bg-brand-surface rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-gray-800 dark:border-brand-border w-full">
                     
                     <div class="p-6 sm:p-10 lg:p-16 lg:w-[65%] flex flex-col items-center md:items-start text-center md:text-left">
@@ -540,7 +543,7 @@
                             </div>
                         </div>
 
-                        <a href="https://yennamsidartharushi.github.io/Smartstudy/" class="w-full sm:w-auto inline-flex justify-center items-center px-6 md:px-8 py-3 md:py-3.5 text-xs md:text-sm font-bold text-gray-900 bg-white rounded-xl hover:bg-gray-200 transition-colors group">
+                        <a href="https://yennamsidartharushi.github.io/Smartstudy/" class="w-full sm:w-auto max-w-full inline-flex justify-center items-center px-6 md:px-8 py-3 md:py-3.5 text-xs md:text-sm font-bold text-gray-900 bg-white rounded-xl hover:bg-gray-200 transition-colors group">
                             Start Your Project <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
@@ -559,7 +562,7 @@
         </section>
 
         <section id="contact" class="py-16 md:py-20 bg-gray-50 dark:bg-brand-dark relative border-t border-gray-200 dark:border-brand-border px-4 md:px-0">
-            <div class="max-w-[90rem] mx-auto px-0 md:px-4 lg:px-8" data-aos="fade-up">
+            <div class="max-w-screen-xl mx-auto px-0 md:px-4 lg:px-8" data-aos="fade-up">
                 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start w-full">
                     
@@ -651,21 +654,21 @@
         </section>
 
         <div class="bg-brand-primary text-white py-14" data-aos="fade-up" data-aos-duration="800">
-            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="max-w-screen-xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="w-full md:w-auto text-center md:text-left">
                     <h2 class="font-heading text-3xl md:text-4xl font-extrabold uppercase mb-2 tracking-tight">NEED SUPPORT?</h2>
                     <a href="mailto:yennamsiddartharushi7@gmail.com" class="flex flex-wrap items-center justify-center md:justify-start gap-2 text-white/90 hover:text-white transition-colors font-light text-sm break-words w-full">
                         <i class="far fa-envelope flex-shrink-0"></i> yennamsiddartharushi7@gmail.com
                     </a>
                 </div>
-                <a href="#contact" class="w-full md:w-auto px-8 py-4 bg-white text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all uppercase text-xs tracking-widest text-center whitespace-nowrap">
+                <a href="#contact" class="w-full sm:w-auto max-w-full px-8 py-4 bg-white text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all uppercase text-xs tracking-widest text-center whitespace-nowrap">
                     SUPPORT PORTAL
                 </a>
             </div>
         </div>
 
         <footer class="bg-white dark:bg-brand-surface pt-12 md:pt-16 pb-8 md:pb-10 border-t border-gray-200 dark:border-brand-border">
-            <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
+            <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
                 
                 <div class="text-center mb-16 md:mb-24 mt-4 md:mt-8" data-aos="fade-up">
                     <p class="text-base md:text-xl font-light italic text-gray-500 dark:text-gray-400 max-w-3xl mx-auto px-4">
@@ -749,8 +752,8 @@
             </div>
         </footer>
 
-    </main> <div id="asset-modal" class="fixed inset-0 z-[100] bg-white/95 dark:bg-brand-dark/95 backdrop-blur-xl hidden overflow-y-auto w-full h-full transition-opacity">
-        <div class="max-w-[90rem] mx-auto px-4 lg:px-8 py-6 md:py-10 min-h-screen flex flex-col">
+    </main> <div id="asset-modal" class="fixed inset-0 z-[100] bg-white/95 dark:bg-brand-dark/95 backdrop-blur-xl hidden w-full h-full overflow-y-auto transition-opacity">
+        <div class="max-w-screen-xl mx-auto px-4 lg:px-8 py-6 md:py-10 min-h-screen flex flex-col">
             
             <button id="close-modal" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center gap-2 text-[10px] md:text-xs font-semibold uppercase tracking-widest mb-6 md:mb-12 w-fit transition-colors">
                 <i class="fas fa-arrow-left"></i> Back to Archive
@@ -762,7 +765,7 @@
                     <h2 id="modal-title" class="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 leading-tight tracking-tight break-words">Title</h2>
                     <p id="modal-desc" class="text-gray-600 dark:text-gray-400 text-xs md:text-sm lg:text-base mb-6 md:mb-10 leading-relaxed font-light">Description goes here.</p>
 
-                    <button id="primary-unlock-btn" class="w-full md:w-fit px-4 md:px-6 py-3 md:py-3.5 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 md:gap-3 mb-8 md:mb-12 text-xs md:text-sm shadow-sm cursor-pointer">
+                    <button id="primary-unlock-btn" class="w-full md:w-fit max-w-full px-4 md:px-6 py-3 md:py-3.5 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 md:gap-3 mb-8 md:mb-12 text-xs md:text-sm shadow-sm cursor-pointer">
                         <i id="primary-icon" class="fas fa-unlock-alt"></i> <span id="primary-btn-text">Unlock Asset Prompt</span>
                     </button>
 
@@ -852,6 +855,10 @@
                         setTimeout(() => {
                             document.body.classList.remove('overflow-hidden');
                             loader.style.display = 'none';
+                            
+                            // ✅ FIX 7: Force layout recalculation after loader unblocks body
+                            document.body.style.width = "100%"; 
+                            
                             window.scrollTo(0, 0); // Force top before AOS
                             AOS.init({ once: true, offset: 50 }); // Initialize site animations
                         }, 1200); // Wait for slide up to finish
@@ -860,6 +867,15 @@
                 }
                 percentText.innerText = count;
             }, 30); // Speed of the counter
+        });
+
+        // ✅ FIX 2: Mobile Menu JS Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
         });
 
         // Theme Toggle Logic (DARK BY DEFAULT)
@@ -1002,7 +1018,7 @@
             stateUnlocked.classList.remove('flex');
             stateUnlocked.classList.add('hidden');
 
-            primaryBtn.className = "w-full md:w-fit px-4 md:px-6 py-3 md:py-3.5 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 md:gap-3 mb-8 md:mb-12 text-xs md:text-sm shadow-sm cursor-pointer";
+            primaryBtn.className = "w-full md:w-fit max-w-full px-4 md:px-6 py-3 md:py-3.5 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 md:gap-3 mb-8 md:mb-12 text-xs md:text-sm shadow-sm cursor-pointer";
             primaryIcon.className = "fas fa-unlock-alt";
             primaryBtnText.innerText = "Unlock Asset Prompt";
             
