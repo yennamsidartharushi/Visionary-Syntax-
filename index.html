@@ -1,9 +1,8 @@
- 
  <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Visionary Syntax. | Premium Assets</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,12 +43,13 @@
         }
     </script>
     <style>
-        /* Smooth scrolling and STRICT mobile vertical lock */
+        /* Smooth scrolling and ABSOLUTE mobile vertical lock */
         html, body { 
             scroll-behavior: smooth; 
-            overflow-x: hidden; /* Prevents horizontal scrolling */
+            overflow-x: hidden !important; 
             width: 100%; 
-            max-width: 100%; 
+            margin: 0;
+            padding: 0;
             position: relative;
             font-family: 'Inter', sans-serif; 
             transition: background-color 0.3s, color 0.3s;
@@ -90,7 +90,7 @@
         }
         .intro-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem; /* Scaled perfectly for mobile */
+            font-size: 1.8rem; /* Scaled for mobile */
             font-weight: 900;
             color: #ffffff;
             letter-spacing: -0.04em;
@@ -99,8 +99,8 @@
             animation: revealText 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
             text-shadow: 0 0 40px rgba(37, 99, 235, 0.5);
             display: flex;
-            flex-direction: column; /* Stack on mobile to prevent overflow */
-            gap: 0.2rem;
+            flex-direction: column; /* Stack on mobile */
+            gap: 0.5rem;
             width: 100%;
         }
         @media (min-width: 768px) { 
@@ -159,10 +159,10 @@
           display: inline-block;
           text-decoration: none;
           width: 100%; /* Full width on mobile */
-          max-width: 300px; /* Cap width */
+          max-width: 100%; /* Flexible cap width */
         }
         @media (min-width: 640px) {
-             .pearl-btn { width: auto; }
+             .pearl-btn { width: auto; max-width: 300px; }
         }
         .pearl-btn .wrap {
           font-size: 14px; /* Scaled for mobile */
@@ -280,10 +280,10 @@
             </div>
         </nav>
 
-        <section class="relative pt-24 pb-12 lg:pt-48 lg:pb-32 overflow-hidden px-4 md:px-0">
+        <section class="relative pt-24 pb-12 lg:pt-48 lg:pb-32 px-4 md:px-0">
             <div class="max-w-[90rem] mx-auto px-0 md:px-6 lg:px-8 relative">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                    <div class="w-full flex flex-col items-center text-center lg:items-start lg:text-left" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1700">
+                    <div class="w-full flex flex-col items-center text-center lg:items-start lg:text-left" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1700">
                         <div class="inline-flex items-center justify-center gap-2 px-3 py-1.5 mb-6 rounded bg-gray-100 dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-brand-primary text-[9px] md:text-[10px] font-bold tracking-widest uppercase shadow-sm">
                             AI PROMPT ARCHIVE
                         </div>
@@ -311,7 +311,7 @@
                         </div>
                     </div>
 
-                    <div class="relative w-full aspect-[4/5] sm:aspect-[4/3] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-premium dark:shadow-premium-dark mt-4 lg:mt-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="1900">
+                    <div class="relative w-full aspect-[4/5] sm:aspect-[4/3] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-premium dark:shadow-premium-dark mt-4 lg:mt-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1900">
                         <div class="absolute top-4 left-4 md:top-6 md:left-6 z-20 flex items-center gap-2 md:gap-3 bg-white/90 dark:bg-brand-surface/90 backdrop-blur-md px-3 md:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl border border-gray-200 dark:border-brand-border shadow-xl scale-90 md:scale-100 origin-top-left">
                             <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-brand-primary flex items-center justify-center text-white text-xs md:text-sm">
                                 <i class="fas fa-image"></i>
@@ -321,7 +321,7 @@
                                 <p class="text-[12px] md:text-[15px] font-heading font-bold text-gray-900 dark:text-white leading-none tracking-tight">Ultra High Fidelity</p>
                             </div>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="High Fidelity Portrait" class="w-full h-full object-cover">
+                        <img src="Gemini_Generated_Image_7j3zvh7j3zvh7j3z.png" alt="High Fidelity Portrait" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -449,7 +449,7 @@
         <section class="py-16 md:py-24 relative bg-gray-100 dark:bg-brand-dark px-4 md:px-0">
             <div class="max-w-[90rem] mx-auto px-0 md:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
-                    <div data-aos="fade-right" data-aos-duration="1000" class="text-center md:text-left px-2 md:px-0">
+                    <div data-aos="fade-up" data-aos-duration="1000" class="text-center md:text-left px-2 md:px-0">
                         <h2 class="font-heading text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-4 md:mb-6 text-gray-900 dark:text-white uppercase leading-[1.1]">
                             EMPOWERING YOUR <br class="hidden sm:block">
                             <span class="text-brand-primary">CREATIVE WORKFLOW</span>
@@ -459,7 +459,7 @@
                         </p>
                     </div>
 
-                    <div class="bg-white dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-xl w-full" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="bg-white dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-xl w-full" data-aos="fade-up" data-aos-duration="1000">
                         <h3 class="font-heading text-lg md:text-xl font-bold mb-6 md:mb-10 text-gray-900 dark:text-white uppercase tracking-tight text-center md:text-left">PROFESSIONAL USE-CASES</h3>
                         
                         <ul class="space-y-5 md:space-y-8">
@@ -497,7 +497,7 @@
             </div>
         </section>
 
-        <section class="pb-16 md:pb-24 bg-gray-100 dark:bg-brand-dark px-4 md:px-0" data-aos="zoom-in-up" data-aos-duration="1000">
+        <section class="pb-16 md:pb-24 bg-gray-100 dark:bg-brand-dark px-4 md:px-0" data-aos="fade-up" data-aos-duration="1000">
             <div class="max-w-[90rem] mx-auto px-0 md:px-4 lg:px-8">
                 <div class="bg-gray-900 dark:bg-brand-surface rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-gray-800 dark:border-brand-border w-full">
                     
@@ -643,6 +643,20 @@
             </div>
         </section>
 
+        <div class="bg-brand-primary text-white py-14" data-aos="fade-up" data-aos-duration="800">
+            <div class="max-w-[90rem] mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h2 class="font-heading text-4xl font-extrabold uppercase mb-2 tracking-tight">NEED SUPPORT?</h2>
+                    <a href="mailto:yennamsiddartharushi7@gmail.com" class="flex items-center gap-2 text-white/90 hover:text-white transition-colors font-light text-sm break-all">
+                        <i class="far fa-envelope flex-shrink-0"></i> yennamsiddartharushi7@gmail.com
+                    </a>
+                </div>
+                <a href="#contact" class="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all uppercase text-xs tracking-widest text-center whitespace-nowrap">
+                    SUPPORT PORTAL
+                </a>
+            </div>
+        </div>
+
         <footer class="bg-white dark:bg-brand-surface pt-12 md:pt-16 pb-8 md:pb-10 border-t border-gray-200 dark:border-brand-border">
             <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
                 
@@ -687,10 +701,10 @@
                         <h4 class="font-bold text-sm md:text-base mb-4 md:mb-6 text-gray-900 dark:text-white">Explore</h4>
                         <ul class="space-y-3 md:space-y-4">
                             <li><a href="#" class="text-xs md:text-[13px] text-brand-primary font-medium hover:underline transition-all">Home</a></li>
-                            <li><a href="#" class="text-xs md:text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Prompt Archive</a></li>
+                            <li><a href="#archive" class="text-xs md:text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Prompt Archive</a></li>
                             <li><a href="#" class="text-xs md:text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Deployment Guide</a></li>
                             <li><a href="#" class="text-xs md:text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">About the Platform</a></li>
-                            <li><a href="#" class="text-xs md:text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Contact Us</a></li>
+                            <li><a href="#contact" class="text-xs md:text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Contact Us</a></li>
                         </ul>
                     </div>
 
@@ -728,9 +742,7 @@
             </div>
         </footer>
 
-    </main>
-
-    <div id="asset-modal" class="fixed inset-0 z-[100] bg-white/95 dark:bg-brand-dark/95 backdrop-blur-xl hidden overflow-y-auto w-full h-full transition-opacity">
+    </main> <div id="asset-modal" class="fixed inset-0 z-[100] bg-white/95 dark:bg-brand-dark/95 backdrop-blur-xl hidden overflow-y-auto w-full h-full transition-opacity">
         <div class="max-w-[90rem] mx-auto px-4 lg:px-8 py-6 md:py-10 min-h-screen flex flex-col">
             
             <button id="close-modal" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center gap-2 text-[10px] md:text-xs font-semibold uppercase tracking-widest mb-6 md:mb-12 w-fit transition-colors">
@@ -776,8 +788,8 @@
                                 <p class="text-gray-500 dark:text-gray-400 text-[10px] md:text-xs lg:text-sm font-medium text-center">Decrypting... please wait <span id="countdown-text" class="text-gray-900 dark:text-white font-bold">15</span>s</p>
                             </div>
 
-                            <div id="prompt-state-unlocked" class="hidden w-full flex-col">
-                                <div class="bg-white dark:bg-[#050505] p-3 md:p-4 lg:p-5 rounded-lg border border-gray-200 dark:border-brand-border mb-3 md:mb-4 max-h-[150px] overflow-y-auto custom-scrollbar">
+                            <div id="prompt-state-unlocked" class="hidden w-full flex-col w-full">
+                                <div class="bg-white dark:bg-[#050505] p-3 md:p-4 lg:p-5 rounded-lg border border-gray-200 dark:border-brand-border mb-3 md:mb-4 max-h-[150px] overflow-y-auto custom-scrollbar w-full">
                                     <p id="actual-prompt-text" class="text-gray-800 dark:text-gray-300 text-[10px] md:text-xs lg:text-sm leading-relaxed font-mono select-all break-words"></p>
                                 </div>
                                 <button id="copy-unlocked-btn" class="w-full py-2.5 md:py-3 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 text-[10px] md:text-xs lg:text-sm shadow-sm">
