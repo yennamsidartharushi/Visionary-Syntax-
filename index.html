@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionary Syntax. | Premium Assets</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#050505',      // OLED Black for Dark Mode
+                            surface: '#0a0a0c',   // Slightly elevated dark surface
+                            card: '#0f0f11',      // Dark card background
+                            border: '#1f1f22',    // Subtle dark border
+                            primary: '#2563eb',   // Clean Blue Accent
+                            primaryHover: '#1d4ed8',
+                        }
+                    },
+                    boxShadow: {
+                        'premium': '0 4px 40px rgba(0, 0, 0, 0.05)',
+                        'premium-dark': '0 10px 50px rgba(0, 0, 0, 0.5)',
+                        'glow': '0 0 20px rgba(37, 99, 235, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling and base styling */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; overflow-x: hidden; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
+        
+        /* Premium minimal scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
+        .dark ::-webkit-scrollbar-thumb { background: #1d4ed8; }
+
+        /* Timer SVG Animation Helper */
+        .timer-ring { transition: stroke-dashoffset 1s linear; }
+
+        /* --- PREMIUM INTRO ANIMATION --- */
+        #intro-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: #050505; /* Always dark for the intro */
+            z-index: 999999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            transform-origin: top;
+        }
+        .intro-text-wrap {
+            overflow: hidden; 
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .intro-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: -0.04em;
+            transform: translateY(120%);
+            opacity: 0;
+            animation: revealText 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            text-shadow: 0 0 40px rgba(37, 99, 235, 0.5);
+        }
+        @media (min-width: 768px) { .intro-text { font-size: 4.5rem; } }
+        @keyframes revealText {
+            0% { transform: translateY(120%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        .intro-loading-bar {
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2563eb, transparent);
+            margin-top: 20px;
+            transition: width 1.5s cubic-bezier(0.85, 0, 0.15, 1);
+            box-shadow: 0 0 10px #2563eb;
+        }
+        .intro-subtitle {
+            margin-top: 15px;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.5s;
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+        
+        .intro-slide-up {
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
+
+        /* --- Pearl Button Custom CSS --- */
+        .pearl-btn {
+          --white: #ffe7ff;
+          --bg: #080808;
+          --radius: 100px;
+          outline: none;
+          cursor: pointer;
+          border: 0;
+          position: relative;
+          border-radius: var(--radius);
+          background-color: var(--bg);
+          transition: all 0.2s ease;
+          box-shadow:
+            inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
+            inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+            inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
+            0 2rem 2rem rgba(0, 0, 0, 0.3),
+            0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+          display: inline-block;
+          text-decoration: none;
+        }
+        .pearl-btn .wrap {
+          font-size: 15px; 
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.85);
+          padding: 16px 36px; 
+          border-radius: inherit;
+          position: relative;
+          overflow: hidden;
+        }
+        .pearl-btn .wrap p span:nth-child(2) { display: none; }
+        .pearl-btn:hover .wrap p span:nth-child(1) { display: none; }
+        .pearl-btn:hover .wrap p span:nth-child(2) { display: inline-block; }
+        
+        .pearl-btn .wrap p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin: 0;
+          transition: all 0.2s ease;
+          transform: translateY(2%);
+          mask-image: linear-gradient(to bottom, white 55%, transparent);
+          -webkit-mask-image: linear-gradient(to bottom, white 55%, transparent);
+        }
+        .pearl-btn .wrap::before,
+        .pearl-btn .wrap::after {
+          content: "";
+          position: absolute;
+          transition: all 0.3s ease;
+        }
+        .pearl-btn .wrap::before {
+          left: -15%; right: -15%; bottom: 25%; top: -100%; border-radius: 50%; background-color: rgba(255, 255, 255, 0.12);
+        }
+        .pearl-btn .wrap::after {
+          left: 6%; right: 6%; top: 12%; bottom: 40%; border-radius: 22px 22px 0 0; box-shadow: inset 0 10px 8px -10px rgba(255, 255, 255, 0.8); background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+        }
+        .pearl-btn:hover {
+          box-shadow: inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.4), inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7), inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.7), 0 2rem 2rem rgba(0, 0, 0, 0.3), 0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+        }
+        .pearl-btn:hover .wrap::before { transform: translateY(-5%); }
+        .pearl-btn:hover .wrap::after { opacity: 0.4; transform: translateY(5%); }
+        .pearl-btn:hover .wrap p { transform: translateY(-4%); }
+        .pearl-btn:active {
+          transform: translateY(4px); box-shadow: inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.5), inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.8), inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.4), 0 2rem 2rem rgba(0, 0, 0, 0.3), 0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-[#fafafa] text-gray-900 dark:bg-brand-dark dark:text-gray-100 antialiased selection:bg-brand-primary selection:text-white overflow-hidden">
+
+    <div id="intro-overlay">
+        <div class="intro-text-wrap">
+            <h1 class="intro-text flex items-center justify-center gap-4">
+                Visionary <span class="text-brand-primary">Syntax.</span>
+            </h1>
+            <div id="loading-line" class="intro-loading-bar"></div>
+            <div class="intro-subtitle font-bold text-center">
+                Initializing Protocol <span id="loading-percent" class="text-white">0</span>%
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-xl bg-white/80 dark:bg-brand-dark/90 border-b border-gray-200 dark:border-brand-border shadow-sm" data-aos="fade-down" data-aos-duration="800" data-aos-delay="1500">
+        <div class="max-w-[90rem] mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <span class="font-heading font-black text-xl tracking-tight text-gray-900 dark:text-white uppercase">
+                        Visionary <span class="text-brand-primary">Syntax.</span>
+                    </span>
+                </div>
+                
+                <div class="hidden xl:flex space-x-6">
+                    <a href="#" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors">Home</a>
+                    <a href="#archive" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors">Prompts</a>
+                    <a href="#" class="text-[13px] font-semibold text-brand-primary transition-colors">Website Development</a>
+                    <a href="#" class="text-[13px] font-semibold text-brand-primary transition-colors">Offers & Deals</a>
+                    <a href="#" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors">How to Use</a>
+                    <a href="#" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors flex items-center gap-1">Guides <i class="fas fa-chevron-down text-[10px]"></i></a>
+                    <a href="#" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors">About</a>
+                    <a href="#" class="text-[13px] font-semibold text-gray-600 hover:text-brand-primary dark:text-gray-300 dark:hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4 md:space-x-5">
+                    <a href="https://instagram.com/y._siddartha_" target="_blank" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"><i class="fab fa-instagram text-[15px]"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"><i class="fab fa-telegram-plane text-[15px]"></i></a>
+                    
+                    <button id="theme-toggle" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors outline-none">
+                        <i id="theme-icon" class="fas fa-sun text-[15px]"></i>
+                    </button>
+                    
+                    <a href="#archive" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold text-white bg-brand-primary shadow-sm hover:bg-brand-primaryHover transition-all duration-300">
+                        Get Prompts
+                    </a>
+                    
+                    <button class="xl:hidden text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-[90rem] mx-auto px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="max-w-2xl" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1700">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded bg-gray-100 dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-brand-primary text-[10px] font-bold tracking-widest uppercase shadow-sm">
+                        AI PROMPT ARCHIVE
+                    </div>
+                    <h1 class="font-heading text-5xl lg:text-[4.5rem] font-extrabold tracking-tight leading-[1.05] mb-6 text-gray-900 dark:text-white">
+                        Professional AI <br>
+                        Prompts for <br>
+                        <span class="text-brand-primary">
+                            Modern Creators.
+                        </span>
+                    </h1>
+                    <p class="text-base text-gray-600 dark:text-gray-400 mb-10 max-w-lg leading-relaxed font-light">
+                        A structural library of handcrafted blueprints designed to bridge the gap between creative vision and high-fidelity AI execution. Optimized for social media growth and professional branding.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                        <a href="#archive" class="pearl-btn">
+                            <div class="wrap">
+                                <p>
+                                    <span>✧</span>
+                                    <span>✦</span>
+                                    Explore the Library <i class="fas fa-arrow-right text-sm ml-1"></i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-premium dark:shadow-premium-dark" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="1900">
+                    <div class="absolute top-6 left-6 z-20 flex items-center gap-3 bg-white/90 dark:bg-brand-surface/90 backdrop-blur-md px-4 py-3 rounded-2xl border border-gray-200 dark:border-brand-border shadow-xl">
+                        <div class="w-10 h-10 rounded-xl bg-brand-primary flex items-center justify-center text-white text-sm">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div>
+                            <p class="text-[9px] text-gray-500 font-bold uppercase tracking-widest leading-none mb-1.5">ASSET STATUS</p>
+                            <p class="text-[15px] font-heading font-bold text-gray-900 dark:text-white leading-none tracking-tight">Ultra High Fidelity</p>
+                        </div>
+                    </div>
+                    <img src="Gemini_Generated_Image_7j3zvh7j3zvh7j3z.png" alt="High Fidelity Portrait" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="archive" class="py-24 bg-white dark:bg-brand-surface relative border-y border-gray-200 dark:border-brand-border">
+        
+        <div class="max-w-[90rem] mx-auto px-4 lg:px-8 mb-12" data-aos="fade-up">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl font-extrabold mb-4 text-gray-900 dark:text-white tracking-tight uppercase">FEATURED ASSETS</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-sm font-light">A preview of high-fidelity blueprints available in our technical <br> archive.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-4 bg-gray-50 dark:bg-brand-dark backdrop-blur-xl p-3 rounded-2xl border border-gray-200 dark:border-brand-border shadow-xl sticky top-24 z-40">
+                <div class="flex flex-wrap gap-2 w-full lg:w-auto overflow-x-auto pb-2 lg:pb-0 hide-scroll">
+                    <button class="px-5 py-2.5 bg-brand-primary text-white rounded-xl text-xs font-bold tracking-wider shadow-glow flex-shrink-0">ALL</button>
+                    <button class="px-5 py-2.5 bg-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-brand-surface rounded-xl text-xs font-bold tracking-wider transition-colors flex-shrink-0">UNIQUE</button>
+                    <button class="px-5 py-2.5 bg-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-brand-surface rounded-xl text-xs font-bold tracking-wider transition-colors flex-shrink-0">MEN</button>
+                    <button class="px-5 py-2.5 bg-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-brand-surface rounded-xl text-xs font-bold tracking-wider transition-colors flex-shrink-0">WOMEN</button>
+                    <button class="px-5 py-2.5 bg-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-brand-surface rounded-xl text-xs font-bold tracking-wider transition-colors flex-shrink-0">COUPLE</button>
+                    <button class="px-5 py-2.5 bg-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-brand-surface rounded-xl text-xs font-bold tracking-wider transition-colors flex-shrink-0">PAID</button>
+                </div>
+                
+                <div class="w-full lg:w-72 relative flex-shrink-0">
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    <input type="text" placeholder="Filter aesthetic..." class="w-full bg-white dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-xl py-3 pl-11 pr-4 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary transition-shadow">
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-[90rem] mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-gray-50 dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-3xl overflow-hidden flex flex-col group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-gray-200 dark:bg-black rounded-t-3xl">
+                        <div class="absolute top-4 left-4 z-10 flex gap-2">
+                            <span class="px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md text-gray-900 dark:text-white text-[10px] font-bold uppercase rounded-full">MEN</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop" alt="Portrait" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-2">Office Swag Portrait</h4>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2 font-light">A high-fidelity candid flash photography blueprint for professional office-style setups.</p>
+                        <button class="open-modal-btn flex items-center justify-between w-full mt-auto text-xs font-bold text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors group/btn" 
+                            data-title="Office Swag Portrait"
+                            data-category="MEN"
+                            data-desc="A high-fidelity candid flash photography blueprint for professional office-style setups."
+                            data-img="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop"
+                            data-prompt="A high-fidelity candid flash photography shot of a young professional man in stylish streetwear sitting at an office desk, looking confident. 8k, photorealistic, cinematic lighting.">
+                            <span class="tracking-widest uppercase">ACCESS <i class="fas fa-arrow-right ml-2 text-brand-primary"></i></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-3xl overflow-hidden flex flex-col group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-gray-200 dark:bg-black rounded-t-3xl">
+                        <div class="absolute top-4 left-4 z-10 flex gap-2">
+                            <span class="px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md text-gray-900 dark:text-white text-[10px] font-bold uppercase rounded-full">MEN</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600&auto=format&fit=crop" alt="Guitar" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-2">Night Guitarist with...</h4>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2 font-light">A candid, ultra-realistic night shot of a young man playing an acoustic guitar...</p>
+                        <button class="open-modal-btn flex items-center justify-between w-full mt-auto text-xs font-bold text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors group/btn" 
+                            data-title="Night Guitarist"
+                            data-category="MEN"
+                            data-desc="A candid, ultra-realistic night shot of a young man playing an acoustic guitar while leaning against a sports car."
+                            data-img="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop"
+                            data-prompt="A candid, ultra-realistic night shot of a young man with a yellow shirt leaning against a grey sports car playing an acoustic guitar under streetlights. High contrast, neon accents.">
+                            <span class="tracking-widest uppercase">ACCESS <i class="fas fa-arrow-right ml-2 text-brand-primary"></i></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-3xl overflow-hidden flex flex-col group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-gray-200 dark:bg-black rounded-t-3xl">
+                        <div class="absolute top-4 left-4 z-10 flex gap-2">
+                            <span class="px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md text-gray-900 dark:text-white text-[10px] font-bold uppercase rounded-full">UNIQUE</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" alt="Dark" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-2">Cinematic Dark Rider</h4>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2 font-light">An ultra-realistic cinematic dark poster portrait with deep shadows and rim lighting.</p>
+                        <button class="open-modal-btn flex items-center justify-between w-full mt-auto text-xs font-bold text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors group/btn" 
+                            data-title="Cinematic Dark Rider"
+                            data-category="UNIQUE"
+                            data-desc="An ultra-realistic cinematic dark poster portrait with deep shadows and rim lighting."
+                            data-img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200&auto=format&fit=crop"
+                            data-prompt="An ultra-realistic cinematic dark poster portrait of a person in shadows, strong rim lighting, moody atmosphere, 35mm lens, dramatic mood.">
+                            <span class="tracking-widest uppercase">ACCESS <i class="fas fa-arrow-right ml-2 text-brand-primary"></i></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-3xl overflow-hidden flex flex-col group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-gray-200 dark:bg-black rounded-t-3xl">
+                        <div class="absolute top-4 left-4 z-10 flex gap-2">
+                            <span class="px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md text-gray-900 dark:text-white text-[10px] font-bold uppercase rounded-full">UNIQUE</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?q=80&w=600&auto=format&fit=crop" alt="Gold" class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-gray-900 dark:text-white font-bold text-lg mb-2 line-clamp-1">Prabhas Baahubal...</h4>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2 font-light">A realistic 3D golden sculpture render of a fierce warrior breaking chains.</p>
+                        <button class="open-modal-btn flex items-center justify-between w-full mt-auto text-xs font-bold text-gray-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary transition-colors group/btn" 
+                            data-title="Golden Warrior"
+                            data-category="UNIQUE"
+                            data-desc="A realistic 3D golden sculpture render of a fierce warrior breaking chains."
+                            data-img="https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?q=80&w=1200&auto=format&fit=crop"
+                            data-prompt="A realistic 3D solid gold sculpture of a warrior breaking metal chains, standing in an ancient desert ruins, hyper-detailed textures, octane render.">
+                            <span class="tracking-widest uppercase">ACCESS <i class="fas fa-arrow-right ml-2 text-brand-primary"></i></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative bg-gray-100 dark:bg-brand-dark">
+        <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="font-heading text-5xl md:text-6xl font-black tracking-tighter mb-6 text-gray-900 dark:text-white uppercase leading-[1.1]">
+                        EMPOWERING YOUR <br>
+                        <span class="text-brand-primary">CREATIVE WORKFLOW</span>
+                    </h2>
+                    <p class="text-base text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-light">
+                        Visionary Syntax provides the structural foundation for high-end digital asset creation. In an era where Generative AI is rapidly evolving, the difference between amateur and professional output lies in the engineering of the prompt. We spend thousands of hours testing and refining blueprints that understand lighting physics, lens parameters, and artistic composition.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-brand-card border border-gray-200 dark:border-brand-border rounded-[2rem] p-10 lg:p-12 shadow-xl" data-aos="fade-left" data-aos-duration="1000">
+                    <h3 class="font-heading text-xl font-bold mb-10 text-gray-900 dark:text-white uppercase tracking-tight">PROFESSIONAL USE-CASES</h3>
+                    
+                    <ul class="space-y-8">
+                        <li class="flex items-start gap-4">
+                            <i class="far fa-check-circle text-brand-primary text-xl mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1 text-gray-900 dark:text-white">Instagram Reels & Posts</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 font-light">Engineered 9:16 vertical blueprints for viral impact.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="far fa-check-circle text-brand-primary text-xl mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1 text-gray-900 dark:text-white">Profile Branding</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 font-light">Create high-fidelity personal avatars and headshots.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="far fa-check-circle text-brand-primary text-xl mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1 text-gray-900 dark:text-white">YouTube Thumbnails</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 font-light">High-contrast visuals designed for click-through rate.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="far fa-check-circle text-brand-primary text-xl mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1 text-gray-900 dark:text-white">Cinematic Storytelling</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 font-light">Mood-setting stills for digital documentaries.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="far fa-check-circle text-brand-primary text-xl mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1 text-gray-900 dark:text-white">Commercial Posters</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 font-light">Sharp, high-resolution textures for advertising.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-24 bg-gray-100 dark:bg-brand-dark" data-aos="zoom-in-up" data-aos-duration="1000">
+        <div class="max-w-[90rem] mx-auto px-4 lg:px-8">
+            <div class="bg-gray-900 dark:bg-brand-surface rounded-[2.5rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-gray-800 dark:border-brand-border">
+                
+                <div class="p-10 lg:p-16 lg:w-[65%]">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-brand-primary/30 text-brand-primary text-[10px] font-bold tracking-widest uppercase">
+                        <i class="fas fa-globe"></i> PREMIUM WEBSITE
+                    </div>
+                    <h2 class="font-heading text-4xl lg:text-5xl font-extrabold text-white mb-4">
+                        EDUNOVA<span class="text-brand-primary font-light italic">STUDY HUB </span>
+                    </h2>
+                    <p class="text-gray-400 text-sm max-w-xl mb-12 font-light leading-relaxed">
+                       Your ultimate learning hub for pomodoro focus, interactive MCQs, and detailed progress tracking. <strong class="text-white font-semibold">digital experiences</strong> that convert visitors into loyal customers.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8 mb-12">
+                        <div class="flex items-center gap-3 text-gray-300 text-sm font-light">
+                            <i class="far fa-check-circle text-brand-primary"></i> Smart Notes
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300 text-sm font-light">
+                            <i class="far fa-check-circle text-brand-primary"></i> Previous Papers
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300 text-sm font-light">
+                            <i class="far fa-check-circle text-brand-primary"></i> 
+Syllabus & Blueprints
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300 text-sm font-light">
+                            <i class="far fa-check-circle text-brand-primary"></i> Official Textbooks
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300 text-sm font-light">
+                            <i class="far fa-check-circle text-brand-primary"></i> MCQ Mock Tests
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-300 text-sm font-light">
+                            <i class="far fa-check-circle text-brand-primary"></i> My Report Card
+                        </div>
+                    </div>
+
+                    <a href="https://yennamsidartharushi.github.io/Smartstudy/" class="inline-flex justify-center items-center px-8 py-3.5 text-sm font-bold text-gray-900 bg-white rounded-xl hover:bg-gray-200 transition-colors group">
+                        Start Your Project <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-black dark:bg-brand-card border-t lg:border-t-0 lg:border-l border-gray-800 dark:border-brand-border lg:w-[35%] p-10 flex flex-col items-center justify-center relative overflow-hidden">
+                    <div class="relative z-10 text-center">
+                        <div class="w-24 h-24 mx-auto bg-brand-primary rounded-[1.5rem] flex items-center justify-center mb-6 transform rotate-3 shadow-glow">
+                            <i class="fas fa-magic text-4xl text-white"></i>
+                        </div>
+                        <h3 class="font-heading text-5xl font-black text-white mb-2 tracking-tight">100+</h3>
+                        <p class="text-[10px] tracking-widest uppercase text-brand-primary font-bold">PROJECTS DELIVERED</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white dark:bg-brand-surface pt-16 pb-10 border-t border-gray-200 dark:border-brand-border">
+        <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
+            
+            <div class="text-center mb-24 mt-8" data-aos="fade-up">
+                <p class="text-lg md:text-xl font-light italic text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
+                    "The future of content isn't just about what you show, it's about how accurately you can engineer the vision in your mind."
+                </p>
+                <div class="mt-6 flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] uppercase text-gray-600 dark:text-gray-500 font-bold">
+                    <span>PROFESSIONAL</span> &bull; <span>STRUCTURAL</span> &bull; <span>VISUAL</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="flex items-center gap-2 mb-6 cursor-pointer">
+                        <span class="font-heading font-black text-xl tracking-tight text-gray-900 dark:text-white uppercase">
+                            Visionary <span class="text-brand-primary">Syntax.</span>
+                        </span>
+                    </div>
+                    <p class="text-[13px] text-gray-500 dark:text-gray-400 mb-4 leading-relaxed font-light">
+                        The premium destination for digital creators looking to elevate their professional presence with high-fidelity, engineered AI blueprints.
+                    </p>
+                    
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-brand-card text-brand-primary text-[11px] font-semibold mb-6 border border-gray-200 dark:border-brand-border shadow-sm">
+                        <i class="fas fa-arrow-circle-down"></i> Machine Learning & Artificial Intelligence
+                    </div>
+
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com/y._siddartha_" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-brand-card flex items-center justify-center text-gray-500 hover:text-brand-primary transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-brand-card flex items-center justify-center text-gray-500 hover:text-brand-primary transition-all">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="mailto:yennamsiddartharushi7@gmail.com" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-brand-card flex items-center justify-center text-gray-500 hover:text-brand-primary transition-all">
+                            <i class="far fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-base mb-6 text-gray-900 dark:text-white">Explore</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-[13px] text-brand-primary font-medium hover:underline transition-all">Home</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Prompt Archive</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Deployment Guide</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">About the Platform</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-base mb-6 text-gray-900 dark:text-white">Creative Guides</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-[13px] text-brand-primary font-medium hover:underline transition-all">Writing Effective Prompts</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Beginner's Handbook</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Instagram AI Strategies</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Engineering Basics</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Image Styles Guide</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-base mb-6 text-gray-900 dark:text-white">Legal & Support</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-[13px] text-brand-primary font-medium hover:underline transition-all">Privacy Policy</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Legal Disclaimer</a></li>
+                        <li><a href="#" class="text-[13px] text-gray-500 dark:text-gray-400 font-light hover:text-brand-primary transition-colors">Support Portal</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-200 dark:border-brand-border flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-gray-500 dark:text-gray-600 font-light">
+                    &copy; 2026 Visionary Syntax. All rights reserved.
+                </p>
+                <p class="text-xs text-gray-500 dark:text-gray-600 font-light">
+                    created by <span class="font-bold text-gray-900 dark:text-white">Yennam Siddartha Rushi (Sidhu)</span>.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="asset-modal" class="fixed inset-0 z-[100] bg-white/95 dark:bg-brand-dark/95 backdrop-blur-xl hidden overflow-y-auto w-full h-full transition-opacity">
+        <div class="max-w-[90rem] mx-auto px-4 lg:px-8 py-6 md:py-10 min-h-screen flex flex-col">
+            
+            <button id="close-modal" class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-8 md:mb-12 w-fit transition-colors">
+                <i class="fas fa-arrow-left"></i> Back to Archive
+            </button>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-start">
+                <div class="flex flex-col order-2 lg:order-1">
+                    <span id="modal-category" class="text-brand-primary text-[10px] font-bold uppercase tracking-widest mb-4">Category</span>
+                    <h2 id="modal-title" class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight tracking-tight">Title</h2>
+                    <p id="modal-desc" class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-10 leading-relaxed font-light">Description goes here.</p>
+
+                    <button id="primary-unlock-btn" class="w-fit px-6 py-3.5 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-3 mb-12 text-sm shadow-sm cursor-pointer">
+                        <i id="primary-icon" class="fas fa-unlock-alt"></i> <span id="primary-btn-text">Unlock Asset Prompt</span>
+                    </button>
+
+                    <div class="w-full">
+                        <div class="flex items-center gap-2 text-gray-900 dark:text-white text-xs font-bold tracking-widest uppercase mb-4">
+                            <i class="far fa-file-code"></i> Technical Blueprint
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-[#0F1423] border border-gray-200 dark:border-brand-border rounded-xl p-6 md:p-10 flex flex-col items-center justify-center min-h-[220px] md:min-h-[260px]">
+                            
+                            <div id="prompt-state-initial" class="flex flex-col items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-white dark:bg-[#151A2C] flex items-center justify-center border border-gray-200 dark:border-brand-border shadow-sm">
+                                    <i class="fas fa-lock text-gray-400 dark:text-gray-500 text-lg"></i>
+                                </div>
+                                <button id="secondary-unlock-btn" class="px-5 py-2.5 bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-brand-dark dark:hover:bg-gray-200 rounded-lg font-semibold transition-colors text-xs md:text-sm shadow-sm">
+                                    Initiate Unlock Sequence
+                                </button>
+                            </div>
+
+                            <div id="prompt-state-timer" class="hidden flex-col items-center gap-5">
+                                <div class="relative w-16 h-16 md:w-20 md:h-20">
+                                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="45" fill="none" class="stroke-gray-200 dark:stroke-brand-border" stroke-width="4"></circle>
+                                        <circle id="timer-ring" cx="50" cy="50" r="45" fill="none" class="stroke-brand-primary timer-ring" stroke-width="4" stroke-dasharray="283" stroke-dashoffset="0"></circle>
+                                    </svg>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span id="countdown-number" class="text-gray-900 dark:text-white font-bold text-base md:text-lg">15</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm font-medium">Decrypting... please wait <span id="countdown-text" class="text-gray-900 dark:text-white font-bold">15</span>s</p>
+                            </div>
+
+                            <div id="prompt-state-unlocked" class="hidden w-full flex-col">
+                                <div class="bg-white dark:bg-[#050505] p-5 rounded-lg border border-gray-200 dark:border-brand-border mb-4">
+                                    <p id="actual-prompt-text" class="text-gray-800 dark:text-gray-300 text-xs md:text-sm leading-relaxed font-mono select-all"></p>
+                                </div>
+                                <button id="copy-unlocked-btn" class="w-full py-3 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 text-sm shadow-sm">
+                                    <span id="copy-btn-text">Copy to Clipboard</span>
+                                    <i id="copy-btn-icon" class="far fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full rounded-2xl overflow-hidden border border-gray-200 dark:border-brand-border shadow-premium dark:shadow-premium-dark relative h-[45vh] md:h-[60vh] lg:h-[75vh] order-1 lg:order-2 bg-gray-100 dark:bg-brand-surface">
+                    <img id="modal-image" src="" alt="Asset Image" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- 🎥 ELITE INTRO LOADER LOGIC 2.0 ---
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0); // Force top on load
+            const loader = document.getElementById('intro-overlay');
+            const percentText = document.getElementById('loading-percent');
+            const loadingLine = document.getElementById('loading-line');
+            
+            // Lock scrolling while loading
+            document.body.classList.add('overflow-hidden');
+            
+            let count = 0;
+            
+            // Expand the loading line width
+            setTimeout(() => {
+                loadingLine.style.width = "80%";
+            }, 100);
+
+            // Fast counter from 0 to 100
+            let counterInterval = setInterval(() => {
+                count += Math.floor(Math.random() * 5) + 2; 
+                if (count >= 100) {
+                    count = 100;
+                    clearInterval(counterInterval);
+                    
+                    // Add a slight delay at 100% before sliding up
+                    setTimeout(() => {
+                        loader.classList.add('intro-slide-up');
+                        
+                        setTimeout(() => {
+                            document.body.classList.remove('overflow-hidden');
+                            loader.style.display = 'none';
+                            window.scrollTo(0, 0); // Force top before AOS
+                            AOS.init({ once: true, offset: 50 }); // Initialize site animations
+                        }, 1200); // Wait for slide up to finish
+                        
+                    }, 400);
+                }
+                percentText.innerText = count;
+            }, 30); // Speed of the counter
+        });
+
+        // Theme Toggle Logic (DARK BY DEFAULT)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            if (!localStorage.getItem('theme')) {
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Modal & Timer Logic
+        const modal = document.getElementById('asset-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const body = document.body;
+        let countdownInterval;
+
+        const stateInitial = document.getElementById('prompt-state-initial');
+        const stateTimer = document.getElementById('prompt-state-timer');
+        const stateUnlocked = document.getElementById('prompt-state-unlocked');
+        
+        const primaryBtn = document.getElementById('primary-unlock-btn');
+        const primaryBtnText = document.getElementById('primary-btn-text');
+        const primaryIcon = document.getElementById('primary-icon');
+        const secondaryBtn = document.getElementById('secondary-unlock-btn');
+        
+        const ring = document.getElementById('timer-ring');
+        const numCenter = document.getElementById('countdown-number');
+        const numText = document.getElementById('countdown-text');
+        
+        const currentPromptData = { text: "" };
+
+        document.querySelectorAll('.open-modal-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.getElementById('modal-title').innerText = this.getAttribute('data-title');
+                document.getElementById('modal-category').innerText = this.getAttribute('data-category');
+                document.getElementById('modal-desc').innerText = this.getAttribute('data-desc');
+                document.getElementById('modal-image').src = this.getAttribute('data-img');
+                currentPromptData.text = this.getAttribute('data-prompt');
+
+                resetModalUI();
+                modal.classList.remove('hidden');
+                body.style.overflow = 'hidden'; 
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            body.style.overflow = 'auto';
+            clearInterval(countdownInterval); 
+        });
+
+        function startUnlock() {
+            let duration = 15;
+            let timer = duration;
+
+            stateInitial.classList.add('hidden');
+            stateTimer.classList.remove('hidden');
+            stateTimer.classList.add('flex');
+
+            primaryBtn.classList.remove('bg-brand-primary', 'hover:bg-brand-primaryHover', 'text-white');
+            primaryBtn.classList.add('bg-gray-100', 'dark:bg-[#0F1423]', 'cursor-not-allowed', 'text-gray-400', 'border', 'border-gray-200', 'dark:border-brand-border');
+            primaryIcon.className = "fas fa-circle-notch fa-spin text-brand-primary"; 
+            primaryBtnText.innerText = `Decrypting (${timer}s)`;
+            
+            ring.style.strokeDashoffset = "0";
+            numCenter.innerText = timer;
+            numText.innerText = timer;
+
+            countdownInterval = setInterval(() => {
+                timer--;
+                primaryBtnText.innerText = `Decrypting (${timer}s)`;
+                numCenter.innerText = timer;
+                numText.innerText = timer;
+                
+                const offset = 283 - (283 * (timer / duration));
+                ring.style.strokeDashoffset = offset;
+
+                if (timer <= 0) {
+                    clearInterval(countdownInterval);
+                    showUnlockedPrompt();
+                }
+            }, 1000);
+        }
+
+        primaryBtn.addEventListener('click', () => {
+            if(!primaryBtn.classList.contains('cursor-not-allowed') && !primaryBtn.classList.contains('bg-[#10b981]')) {
+                startUnlock();
+            }
+        });
+        secondaryBtn.addEventListener('click', startUnlock);
+
+        function showUnlockedPrompt() {
+            stateTimer.classList.remove('flex');
+            stateTimer.classList.add('hidden');
+            
+            stateUnlocked.classList.remove('hidden');
+            stateUnlocked.classList.add('flex');
+            
+            document.getElementById('actual-prompt-text').innerText = currentPromptData.text;
+
+            primaryBtn.classList.remove('bg-gray-100', 'dark:bg-[#0F1423]', 'cursor-not-allowed', 'text-gray-400', 'border', 'border-gray-200', 'dark:border-brand-border');
+            primaryBtn.classList.add('bg-[#10b981]', 'text-white', 'cursor-default'); 
+            primaryIcon.className = "fas fa-check";
+            primaryBtnText.innerText = "Blueprint Unlocked";
+        }
+
+        function resetModalUI() {
+            clearInterval(countdownInterval);
+            
+            stateInitial.classList.remove('hidden');
+            stateInitial.classList.add('flex');
+            stateTimer.classList.remove('flex');
+            stateTimer.classList.add('hidden');
+            stateUnlocked.classList.remove('flex');
+            stateUnlocked.classList.add('hidden');
+
+            primaryBtn.className = "w-fit px-6 py-3.5 bg-brand-primary hover:bg-brand-primaryHover text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-3 mb-12 text-sm shadow-sm cursor-pointer";
+            primaryIcon.className = "fas fa-unlock-alt";
+            primaryBtnText.innerText = "Unlock Asset Prompt";
+            
+            ring.style.strokeDashoffset = "0";
+            
+            const copyText = document.getElementById('copy-btn-text');
+            const copyIcon = document.getElementById('copy-btn-icon');
+            copyText.innerText = "Copy to Clipboard";
+            copyIcon.className = "far fa-copy";
+        }
+
+        document.getElementById('copy-unlocked-btn').addEventListener('click', function() {
+            const copyText = document.getElementById('copy-btn-text');
+            const copyIcon = document.getElementById('copy-btn-icon');
+            
+            navigator.clipboard.writeText(currentPromptData.text).then(() => {
+                copyText.innerText = 'COPIED!';
+                copyIcon.className = 'fas fa-check';
+                
+                setTimeout(() => {
+                    copyText.innerText = 'Copy to Clipboard';
+                    copyIcon.className = 'far fa-copy';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
